@@ -1,0 +1,24 @@
+
+
+// Log the color scheme (light/dark)
+
+// Move the Routes object outside the function component
+const Routes = {
+  MAIN: 'MAIN',
+  PRODUCTBYCATEGORY: 'PRODUCTBYCATEGORY',
+  CARTSUBMIT: 'CARTSUBMIT',
+  ADDRESS: 'ADDRESS',
+  ADDADDRESS: 'ADDADDRESS',
+  MYORDERS: 'MYORDERS',
+  SEARCH: 'SEARCH',
+  SEARCHRESULT: 'SEARCHRESULT',
+  PRODUCTRESULT: 'PRODUCTRESULT',
+  SIGNUP: 'SIGNUP',
+  PRODUCT: 'PRODUCT',
+  EDITPROFILE: 'EDITPROFILE',
+  LOGIN: 'LOGIN',
+  WELCOME: 'WELCOME',
+  CHAT: 'CHAT',
+};
+
+export default Routes;
