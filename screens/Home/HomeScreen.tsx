@@ -42,25 +42,43 @@ function HomeScreen({navigation}: any) {
         styles.userCard,
         {backgroundColor: colorSchema == 'dark' ? Color.black : Color.white},
       ]}
+      activeOpacity={0.7}
       onPress={() => {
         navigation.navigate(Routes.CHAT);
       }}>
       <View style={styles.cardContent}>
         <Image
           source={require('../../assets/img/hero1.jpg')}
-          style={{height: 80, width: 80, borderRadius: 40}}
+          style={{height: 60, width: 60, borderRadius: 30}}
         />
         {/* You can add an Image component here to display the user's profile picture */}
 
         <View style={styles.userInfo}>
+          <View style={{flexDirection: 'row'}}>
+            <Text
+              style={[
+                styles.displayName,
+                {color: colorSchema != 'dark' ? Color.black : Color.white},
+              ]}>
+              {item.displayName}
+            </Text>
+            <Text
+              style={[
+                styles.date,
+                {color: colorSchema != 'dark' ? Color.black : Color.white},
+              ]}>
+              09/05/24
+            </Text>
+          </View>
+
+          {/* You can add additional user info here (e.g., last message, online status) */}
           <Text
             style={[
-              styles.displayName,
+              styles.lastMsg,
               {color: colorSchema != 'dark' ? Color.black : Color.white},
             ]}>
-            {item.displayName}
+            Last Message
           </Text>
-          {/* You can add additional user info here (e.g., last message, online status) */}
         </View>
       </View>
     </TouchableOpacity>
@@ -94,10 +112,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
   },
   displayName: {
-    fontSize: 18,
+    fontSize: 14,
 
     color: Color.colorDarkslategray,
     fontFamily: FontFamily.poppinsBold,
+    flex: 1,
   },
   userCard: {
     backgroundColor: 'white',
@@ -112,5 +131,16 @@ const styles = StyleSheet.create({
   userInfo: {
     marginLeft: 20,
     marginTop: 5,
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  lastMsg: {
+    fontSize: 10,
+    color: Color.colorGrayLight,
+    justifyContent: 'center',
+  },
+  date: {
+    fontSize: 10,
+    color: Color.colorGrayLight,
   },
 });

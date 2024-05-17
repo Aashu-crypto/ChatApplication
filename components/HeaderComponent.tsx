@@ -1,15 +1,19 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Color, width, height, FontFamily} from '../GlobalStyles';
-import NotificationIcon from '../assets/img/Notification.svg';
+
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Routes from '../Routes';
 import {useColorScheme} from 'react-native';
 interface HeaderComponentProps {
   title: string;
+  name?: string;
 }
-const HeaderComponent: React.FC<HeaderComponentProps> = ({title}) => {
+const HeaderComponent: React.FC<HeaderComponentProps> = ({
+  title,
+  name = 'chatbubble-sharp',
+}) => {
   const navigation = useNavigation();
   const colorSchema = useColorScheme();
   return (
@@ -33,9 +37,9 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({title}) => {
           ]}>
           {title}
         </Text>
-      </View>
-      <View>
-        <Icon name={'chatbubble-sharp'} size={25} color={Color.secondary} />
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <Icon name={name} size={25} color={Color.secondary} />
+        </View>
       </View>
     </View>
   );

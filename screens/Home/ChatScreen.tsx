@@ -1,8 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useState, useCallback, useEffect} from 'react';
 import {GiftedChat, IMessage, User} from 'react-native-gifted-chat';
-
+import {useColorScheme} from 'react-native';
+import {Color} from '../../GlobalStyles';
 const ChatScreen: React.FC = () => {
+  const isDark = useColorScheme() === 'dark';
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [socket, setSocket] = useState<WebSocket | null>(null);
   useEffect(() => {
@@ -44,7 +46,16 @@ const ChatScreen: React.FC = () => {
     );
   }, []);
   return (
-    <GiftedChat messages={messages} onSend={onSend} user={{_id: 1} as User} />
+    <View
+      style={{flex: 1, backgroundColor: isDark ? Color.black : Color.white}}>
+      <GiftedChat
+        messages={messages}
+        onSend={onSend}
+        user={{_id: 1} as User}
+        showAvatarForEveryMessage={true}
+        showUserAvatar ={true}
+      />
+    </View>
   );
 };
 
